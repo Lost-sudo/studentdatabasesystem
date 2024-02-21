@@ -95,4 +95,4 @@ class Modify(DisplayStudents):  # this class inherits from DisplayStudents,
 
         messagebox.showinfo("Success", "Modifications saved successfully")  # this shows
         # that the modifications are successful
-        file.close()  # this close the file
+        file.close()  # this closes the file

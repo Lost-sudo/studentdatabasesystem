@@ -45,9 +45,9 @@ class DisplayStudents:
                 data_found = False  # a flag used to indicate whether any matching data is found,
                 # set to false before attempting to search data in a file
                 for line in file:  # loops through each line in a file
-                    if keyword.lower() in line.lower():  # checks if the lowercase version of the keyword exist
+                    if keyword.lower() in line.lower():  # checks if the lowercase version of the keyword exists
                         student_data = line.strip().split(',')  # line.strip() removes any leading or trailing whitespaces
-                        # split() splits the line into list of strings using comma as delimiter
+                        # split() splits the line into a list of strings using comma as delimiter
                         student_id = student_data.pop(0)  # removes and returns the first element of the student data list which is the student id
                         # inserts a new item into the Treeview
                         # "" this indicates the item will be inserted at the root level of the tree
@@ -56,5 +56,5 @@ class DisplayStudents:
                         data_found = True  # if matching data is found, data_found flag sets to true
                 if not data_found:  # if no matching data found, this block of code will be executed indicating that there's not data found
                     messagebox.showinfo("No Data", f"No Data found for {keyword}")
-        except FileNotFoundError:  # if there's no file containing the data of students found this will be executed
+        except FileNotFoundError:  # if there's no file containing the data of students found, this will be executed
             messagebox.showerror("Error", "Student Data Not Found")

@@ -61,11 +61,11 @@ class RegisterStudent:  # defines a class for registration window
 
         self.course.grid(row=6, column=0, columnspan=2, padx=10, pady=10, sticky='w')
 
-        # button for submit and associate it with the register method
+        # button for submitting and associate it with the register method
         self.submit_button = tk.Button(master1, text="Submit", command=self.register)
         self.submit_button.grid(row=7, column=0, columnspan=2, padx=10, pady=10)
 
-    # definition for register method called from the submit button
+    # definition for register method called from the submitted button
     def register(self):
         # retrieves the input values
         first_name = self.first_name_entry.get()
@@ -79,18 +79,18 @@ class RegisterStudent:  # defines a class for registration window
 
             current_year = datetime.datetime.now().year  # retrieves the current year which has been used in the student id
             self.last_student_id += 1  # this increments the last student id by 1
-            with open('../Files/last_student_id.txt', 'w') as id_file:  # this opens the last_student_id.txt in write mode
+            with open('../Files/last_student_id.txt', 'w') as id_file:  # this opens the last_student_id.txt in written mode
                 id_file.write(str(self.last_student_id))  # this writes the updated value of the last_student_id.txt
 
             student_id = f"{current_year}-{self.last_student_id:05}"  # this generates a unique student ID
 
-            with open('../Files/students.txt', 'a') as file:  # this opens the students.txt in append mode
+            with open('../Files/students.txt', 'a') as file:  # this opens the students.txt in appended mode
                 # this writes the student's information to the file
                 file.write(
                     f"{student_id},{first_name},{last_name},{age},{address},{year_level},{selected_course}\n")
             messagebox.showinfo("Success", "Registration Successful")  # displays a message box indicating
             # registration successful
-            file.close()  # closes the file after writing the students information
+            file.close()  # closes the file after writing the student's information
             self.master1.destroy()  # this destroys the registration window after the registration is complete
         else:
             messagebox.showerror("Error", "Please select a course.")  # if no course is selected this

@@ -28,7 +28,7 @@ class AdminInterface:
                                      width=self.button_width, height=self.button_height, command=self.open_main)
 
     def open_modify(self):  # called when the "Modify Student" button is clicked.
-        self.master4.withdraw()  # hides the current admin interface (master4 window) using the withdraw method
+        self.master4.withdraw()  # hides the current admin interface (master4 window) using the withdrawal method
         modify_root = tk.Toplevel(self.master4)  # it creates a new top-level window (Toplevel) for the modification interface
         modify_root.protocol("WM_DELETE_WINDOW", lambda: self.on_close(modify_root))  # protocol is set for the new window to call the on_close method when it is closed.
         Modify(modify_root)  # the Modify class is instantiated with the new window.

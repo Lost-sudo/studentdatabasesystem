@@ -4,7 +4,7 @@ from tkinter import messagebox
 
 class Admin:
     # Initializes a new instance of the class
-    # open_admininterface is a callback so when the admin logged in successfully, admin interface will open
+    # open_admininterface is a callback, so when the admin logged in successfully, admin interface will open
     def __init__(self, master3, open_admininterface):
         self.master3 = master3
         master3.title("Admin")
@@ -30,16 +30,20 @@ class Admin:
         username = self.username_entry.get()
         password = self.password_entry.get()
 
-        if username == "admin" and password == "password":  # checks if the username is admin and password is password, can also be change if you want
-            self.master3.withdraw()  # if the username and password is correct, the login interface will be close
+        if username == "admin" and password == "password":  # checks if the username is admin
+            # and password, password can also be change
+            # if you want
+            self.master3.withdraw()  # if the username and password are correct, the login interface will be close
             self.open_admininterface()  # if the username and password is correct the admin interface will be open
         else:
-            messagebox.showerror("Invalid Username or Password")  # if the username and password is not correct this message box will be executed
+            messagebox.showerror("Error", "Invalid Username or Password")  # if the username and password are not correct,
+            # this message box will be executed
 
     # definition to open to the admin interface
     def open_admininterface(self):
         admin_root = tk.Tk()  # creates a new window
-        self.master3.destroy()  # after the open of the admin interface the login section will be destroyed to prevent it from using again
+        self.master3.destroy()  # after the open of the admin interface,
+        # the login section will be destroyed to prevent it from using again
         admin_root.protocol("WM_DELETE_WINDOW", lambda: self.on_close(admin_root))
 
     def on_close(self, admin_root):  # This line defines the on_close method within the Admin class
