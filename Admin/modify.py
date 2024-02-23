@@ -11,8 +11,9 @@ class Modify(DisplayStudents):  # this class inherits from DisplayStudents,
         # __init__(master5) calling constructor that allows to perform the display function
         master5.title("Modify Student")
 
-        self.modify_button = tk.Button(master5, text="Modify", command=self.modify_student)
-        self.modify_button.grid(row=2, column=3, padx=(0, 5), pady=(0, 5), sticky="w")
+        self.modify_button = tk.Button(master5, text="Modify", command=self.modify_student, font=("Arial", 8),
+                                       width=27, height=2)
+        self.modify_button.pack(pady=10, padx=10)
 
     def modify_student(self):  # called when the modified button is clicked
         selected_student = self.search_results_treeview.focus()  # checks if a student is selected
@@ -29,34 +30,34 @@ class Modify(DisplayStudents):  # this class inherits from DisplayStudents,
             current_year_level = self.search_results_treeview.item(selected_student, "value")[4]  # retrieves the first value index,which corresponds to the year_level
             current_course = self.search_results_treeview.item(selected_student, "value")[5]  # retrieves the first value index,which corresponds to the course selected
 
-            tk.Label(modify_window, text="Enter First Name: ").grid(row=0, column=0, padx=10, pady=10)
+            tk.Label(modify_window, text="Enter First Name: ").pack(pady=2, padx=(10, 10))
             new_first_name_entry = tk.Entry(modify_window)
-            new_first_name_entry.grid(row=0, column=1, padx=10, pady=10)
+            new_first_name_entry.pack(pady=0, padx=0)
             new_first_name_entry.insert(0, current_first_name)
 
-            tk.Label(modify_window, text="Enter Last Name: ").grid(row=2, column=0, padx=10, pady=10)
+            tk.Label(modify_window, text="Enter Last Name: ").pack(pady=2, padx=(10, 10))
             new_last_name_entry = tk.Entry(modify_window)
-            new_last_name_entry.grid(row=2, column=1, padx=10, pady=10)
+            new_last_name_entry.pack(pady=0, padx=0)
             new_last_name_entry.insert(1, current_last_name)
 
-            tk.Label(modify_window, text="Enter Age: ").grid(row=3, column=0, padx=10, pady=10)
+            tk.Label(modify_window, text="Enter Age: ").pack(pady=2, padx=(10, 10))
             new_age_entry = tk.Entry(modify_window)
-            new_age_entry.grid(row=3, column=1, padx=10, pady=10)
+            new_age_entry.pack(pady=0, padx=0)
             new_age_entry.insert(2, current_age)
 
-            tk.Label(modify_window, text="Enter Address: ").grid(row=4, column=0, padx=10, pady=10)
+            tk.Label(modify_window, text="Enter Address: ").pack(pady=2, padx=(10, 10))
             new_address_entry = tk.Entry(modify_window)
-            new_address_entry.grid(row=4, column=1, padx=10, pady=10)
+            new_address_entry.pack(pady=0, padx=0)
             new_address_entry.insert(3, current_address)
 
-            tk.Label(modify_window, text="Enter Year Level: ").grid(row=5, column=0, padx=10, pady=10)
+            tk.Label(modify_window, text="Enter Year Level: ").pack(pady=2, padx=(10, 10))
             new_year_level_entry = tk.Entry(modify_window)
-            new_year_level_entry.grid(row=5, column=1, padx=10, pady=10)
+            new_year_level_entry.pack(pady=0, padx=0)
             new_year_level_entry.insert(4, current_year_level)
 
-            tk.Label(modify_window, text="Enter New Course: ").grid(row=6, column=0, padx=10, pady=10)
+            tk.Label(modify_window, text="Enter New Course: ").pack(pady=2, padx=(10, 10))
             new_course_entry = tk.Entry(modify_window)
-            new_course_entry.grid(row=6, column=1, padx=10, pady=10)
+            new_course_entry.pack(pady=0, padx=0)
             new_course_entry.insert(5, current_course)
 
             # when the save button is clicked, it retrieves all the data that is modified
@@ -66,8 +67,9 @@ class Modify(DisplayStudents):  # this class inherits from DisplayStudents,
                                                                                         new_last_name_entry.get(),
                                                                                         new_age_entry.get(),
                                                                                         new_address_entry.get(),
-                                                                                        new_course_entry.get()))
-            save_button.grid(row=7, column=0, columnspan=2, pady=10)
+                                                                                        new_course_entry.get()),
+                                    width=27, height=2)
+            save_button.pack(padx=10, pady=10)
 
         else:
             messagebox.showerror("Error", "Please select student to modify")  # this will be executed if there is no student selected

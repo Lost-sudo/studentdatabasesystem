@@ -7,6 +7,7 @@ class RegisterStudent:  # defines a class for registration window
     def __init__(self, master1):  # initializes the instance of a class
         self.master1 = master1
         master1.title("Register Student")
+        self.master1.configure(bg="#eddece")
 
         # tries to open the last_student_id.txt to read the last student id
         try:
@@ -15,39 +16,42 @@ class RegisterStudent:  # defines a class for registration window
         except FileNotFoundError:
             self.last_student_id = 0
 
+        self.label = tk.Label(master1, text="Student Registration Interface", font=("Arial", 15, 'bold'), bg="#eddece")
+        self.label.pack(fill="both")
+
         # Label and Entry for the first name
-        self.first_name_label = tk.Label(master1, text="First Name", font=("Arial", 10, 'bold'))
-        self.first_name_label.grid(row=0, column=0, padx=10, pady=10)
-        self.first_name_entry = tk.Entry(master1)
-        self.first_name_entry.grid(row=0, column=1, padx=10, pady=10)
+        self.first_name_label = tk.Label(master1, text="First Name", font=("Arial", 10, 'bold'), bg="#eddece")
+        self.first_name_label.pack(pady=2, padx=(10, 10))
+        self.first_name_entry = tk.Entry(master1, width=30)
+        self.first_name_entry.pack(pady=0, padx=0)
 
         # Label and Entry for the last name
-        self.last_name_label = tk.Label(master1, text="Last Name", font=("Arial", 10, 'bold'))
-        self.last_name_label.grid(row=1, column=0, padx=10, pady=10)
-        self.last_name_entry = tk.Entry(master1)
-        self.last_name_entry.grid(row=1, column=1, padx=10, pady=10)
+        self.last_name_label = tk.Label(master1, text="Last Name", font=("Arial", 10, 'bold'), bg="#eddece")
+        self.last_name_label.pack(pady=2, padx=(10, 10))
+        self.last_name_entry = tk.Entry(master1, width=30)
+        self.last_name_entry.pack(pady=0, padx=0)
 
         # Label and Entry for the age
-        self.age_label = tk.Label(master1, text="Age", font=("Arial", 10, 'bold'))
-        self.age_label.grid(row=2, column=0, padx=10, pady=10)
-        self.age_entry = tk.Entry(master1)
-        self.age_entry.grid(row=2, column=1, padx=10, pady=10)
+        self.age_label = tk.Label(master1, text="Age", font=("Arial", 10, 'bold'), bg="#eddece")
+        self.age_label.pack(pady=2, padx=(10, 10))
+        self.age_entry = tk.Entry(master1, width=30)
+        self.age_entry.pack(pady=0, padx=0)
 
         # Label and Entry for the address
-        self.address_label = tk.Label(master1, text="Address", font=("Arial", 10, 'bold'))
-        self.address_label.grid(row=3, column=0, padx=10, pady=10)
-        self.address_entry = tk.Entry(master1)
-        self.address_entry.grid(row=3, column=1, padx=10, pady=10)
+        self.address_label = tk.Label(master1, text="Address", font=("Arial", 10, 'bold'), bg="#eddece")
+        self.address_label.pack(pady=2, padx=(10, 10))
+        self.address_entry = tk.Entry(master1, width=30)
+        self.address_entry.pack(pady=0, padx=0)
 
         # Label and Entry for the Year Level
-        self.year_level_label = tk.Label(master1, text="Year level", font=("Arial", 10, 'bold'))
-        self.year_level_label.grid(row=4, column=0, padx=10, pady=10)
-        self.year_level_entry = tk.Entry(master1)
-        self.year_level_entry.grid(row=4, column=1, padx=10, pady=10)
+        self.year_level_label = tk.Label(master1, text="Year level", font=("Arial", 10, 'bold'), bg="#eddece")
+        self.year_level_label.pack(pady=2, padx=(10, 10))
+        self.year_level_entry = tk.Entry(master1, width=30)
+        self.year_level_entry.pack(pady=0, padx=0)
 
         # Label and a Listbox of courses available
-        self.course_label = tk.Label(master1, text="Course", bd=0.5, relief="solid", font=("Arial", 10, 'bold'))
-        self.course_label.grid(row=5, column=0, columnspan=2, padx=200, pady=(10, 0), sticky='we')
+        self.course_label = tk.Label(master1, text="Course List", font=("Arial", 15, 'bold'), bg="#eddece")
+        self.course_label.pack(pady=2, padx=2, fill='both')
         self.courses = ["Bachelor of Science in Computer Engineering",
                         "Bachelor of Science in Information Technology",
                         "Bachelor of Science in Computer Science",
@@ -55,15 +59,15 @@ class RegisterStudent:  # defines a class for registration window
                         "Bachelor of Science in Criminology",
                         "Bachelor of Science in Industrial Technology major in Welding and Fabrication",
                         "Bachelor of Science in Industrial Technology major in Mechanical Technology"]
-        self.course = tk.Listbox(master1, height=len(self.courses), font=("Arial", 10), width=100)   # set height and width for the listbox
+        self.course = tk.Listbox(master1, height=len(self.courses), font=("Arial", 10, 'bold'), width=100)   # set height and width for the listbox
         for course in self.courses:  # this loops iterates over each courses in the list self.courses
             self.course.insert(tk.END, course)  # this inserts each course in the list box
 
-        self.course.grid(row=6, column=0, columnspan=4, padx=10, pady=10, sticky='ew')
+        self.course.pack(pady=2, padx=2, fill='both')
 
         # button for submitting and associate it with the register method
         self.submit_button = tk.Button(master1, text="Submit", command=self.register, font=("Arial", 10, 'bold'))
-        self.submit_button.grid(row=7, column=0, columnspan=2, padx=10, pady=10)
+        self.submit_button.pack(pady=2, padx=2)
 
     # definition for register method called from the submitted button
     def register(self):
@@ -91,7 +95,6 @@ class RegisterStudent:  # defines a class for registration window
             messagebox.showinfo("Success", "Registration Successful")  # displays a message box indicating
             # registration successful
             file.close()  # closes the file after writing the student's information
-            self.master1.destroy()  # this destroys the registration window after the registration is complete
         else:
             messagebox.showerror("Error", "Please select a course.")  # if no course is selected this
             # displays an error message

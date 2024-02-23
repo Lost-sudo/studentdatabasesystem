@@ -9,8 +9,9 @@ class Delete(DisplayStudents):  # this class inherits a DisplayStudents
         super().__init__(master6)  # calls the constructor from DisplayStudents using the super() function
         master6.title("Delete Student Data")
 
-        self.delete_button = tk.Button(master6, text="Delete", command=self.delete_student)
-        self.delete_button.grid(row=2, column=0, columnspan=3, padx=10, pady=10)
+        self.delete_button = tk.Button(master6, text="Delete", command=self.delete_student, font=("Arial", 8),
+                                       width=27, height=2)
+        self.delete_button.pack(padx=10, pady=10)
 
     def delete_student(self):  # defines a function method for deleting students data
         selected_index = self.search_results_treeview.focus()  # this retrieves the index of the currently selected item in search result treeview
