@@ -16,38 +16,38 @@ class RegisterStudent:  # defines a class for registration window
             self.last_student_id = 0
 
         # Label and Entry for the first name
-        self.first_name_label = tk.Label(master1, text="First Name")
+        self.first_name_label = tk.Label(master1, text="First Name", font=("Arial", 10, 'bold'))
         self.first_name_label.grid(row=0, column=0, padx=10, pady=10)
         self.first_name_entry = tk.Entry(master1)
         self.first_name_entry.grid(row=0, column=1, padx=10, pady=10)
 
         # Label and Entry for the last name
-        self.last_name_label = tk.Label(master1, text="Last Name")
+        self.last_name_label = tk.Label(master1, text="Last Name", font=("Arial", 10, 'bold'))
         self.last_name_label.grid(row=1, column=0, padx=10, pady=10)
         self.last_name_entry = tk.Entry(master1)
         self.last_name_entry.grid(row=1, column=1, padx=10, pady=10)
 
         # Label and Entry for the age
-        self.age_label = tk.Label(master1, text="Age")
+        self.age_label = tk.Label(master1, text="Age", font=("Arial", 10, 'bold'))
         self.age_label.grid(row=2, column=0, padx=10, pady=10)
         self.age_entry = tk.Entry(master1)
         self.age_entry.grid(row=2, column=1, padx=10, pady=10)
 
         # Label and Entry for the address
-        self.address_label = tk.Label(master1, text="Address")
+        self.address_label = tk.Label(master1, text="Address", font=("Arial", 10, 'bold'))
         self.address_label.grid(row=3, column=0, padx=10, pady=10)
         self.address_entry = tk.Entry(master1)
         self.address_entry.grid(row=3, column=1, padx=10, pady=10)
 
         # Label and Entry for the Year Level
-        self.year_level_label = tk.Label(master1, text="Year level")
+        self.year_level_label = tk.Label(master1, text="Year level", font=("Arial", 10, 'bold'))
         self.year_level_label.grid(row=4, column=0, padx=10, pady=10)
         self.year_level_entry = tk.Entry(master1)
         self.year_level_entry.grid(row=4, column=1, padx=10, pady=10)
 
         # Label and a Listbox of courses available
-        self.course_label = tk.Label(master1, text="Course", bd=0.5, relief="solid")
-        self.course_label.grid(row=5, column=0, columnspan=2, padx=10, pady=(10, 0), sticky='we')
+        self.course_label = tk.Label(master1, text="Course", bd=0.5, relief="solid", font=("Arial", 10, 'bold'))
+        self.course_label.grid(row=5, column=0, columnspan=2, padx=200, pady=(10, 0), sticky='we')
         self.courses = ["Bachelor of Science in Computer Engineering",
                         "Bachelor of Science in Information Technology",
                         "Bachelor of Science in Computer Science",
@@ -55,14 +55,14 @@ class RegisterStudent:  # defines a class for registration window
                         "Bachelor of Science in Criminology",
                         "Bachelor of Science in Industrial Technology major in Welding and Fabrication",
                         "Bachelor of Science in Industrial Technology major in Mechanical Technology"]
-        self.course = tk.Listbox(master1, height=len(self.courses), width=80)   # set height and width for the listbox
+        self.course = tk.Listbox(master1, height=len(self.courses), font=("Arial", 10), width=100)   # set height and width for the listbox
         for course in self.courses:  # this loops iterates over each courses in the list self.courses
             self.course.insert(tk.END, course)  # this inserts each course in the list box
 
-        self.course.grid(row=6, column=0, columnspan=2, padx=10, pady=10, sticky='w')
+        self.course.grid(row=6, column=0, columnspan=4, padx=10, pady=10, sticky='ew')
 
         # button for submitting and associate it with the register method
-        self.submit_button = tk.Button(master1, text="Submit", command=self.register)
+        self.submit_button = tk.Button(master1, text="Submit", command=self.register, font=("Arial", 10, 'bold'))
         self.submit_button.grid(row=7, column=0, columnspan=2, padx=10, pady=10)
 
     # definition for register method called from the submitted button

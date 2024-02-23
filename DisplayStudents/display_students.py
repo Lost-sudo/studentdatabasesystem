@@ -9,12 +9,12 @@ class DisplayStudents:
         master2.title("Search and Display Student")
 
         # GUI elements
-        self.search_label = tk.Label(master2, text="Enter search keyword")
+        self.search_label = tk.Label(master2, text="Enter search keyword", font=("Arial", 10, 'bold'))
         self.search_label.grid(row=0, column=0, padx=10, pady=10)
         self.search_entry = tk.Entry(master2)
         self.search_entry.grid(row=0, column=1, padx=10, pady=10)
 
-        self.search_button = tk.Button(master2, text="Search", command=lambda: self.search_students(self.search_entry.get()))
+        self.search_button = tk.Button(master2, text="Search", font=("Arial", 10, 'bold'), command=lambda: self.search_students(self.search_entry.get()))
         self.search_button.grid(row=0, column=2, padx=10, pady=10)
 
         self.search_results_treeview = ttk.Treeview(master2, height=10, columns=("First Name", "Last Name", "Age",
